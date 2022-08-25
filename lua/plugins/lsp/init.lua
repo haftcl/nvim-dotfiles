@@ -100,6 +100,36 @@ lsp.yamlls.setup {
   flags = lsp_flags,
 }
 
+-- yaml
+lsp.yamlls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+-- go
+lsp.gopls.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+-- Python
+lsp.pyright.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+-- docker
+lsp.dockerls.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+-- sqls
+lsp.sqls.setup{
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 -- php
 lsp.phpactor.setup {
   on_attach = on_attach,
