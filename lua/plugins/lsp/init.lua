@@ -94,21 +94,19 @@ lsp.bashls.setup {
   flags = lsp_flags,
 }
 
--- php
-
---[[ lsp.phpactor.setup { ]]
---[[   on_attach = on_attach, ]]
---[[   flags = lsp_flags, ]]
---[[   init_options = { ]]
-    --[[ ["language_server_phpstan.enabled"] = true, ]]
-    --[[ ["language_server_phpstan.level"] = 1, ]]
-    --[[ ["language_server_phpstan.bin"] = script_folder.."/1phpstan.phar", ]]
-    --[[ ["language_server_psalm.enabled"] = true, ]]
-    --[[ ["language_server_psalm.bin"] = script_folder.."/psalm.phar", ]]
---[[   } ]]
---[[ } ]]
-
-lsp.intelephense.setup {
+-- yaml
+lsp.yamlls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
+
+-- php
+lsp.phpactor.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+--[[ lsp.intelephense.setup { ]]
+--[[   on_attach = on_attach, ]]
+--[[   flags = lsp_flags, ]]
+--[[ } ]]

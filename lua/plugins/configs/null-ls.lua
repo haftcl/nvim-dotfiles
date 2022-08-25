@@ -8,13 +8,17 @@ nullls.setup{
   sources = {
     nullls.builtins.formatting.prettierd,
     nullls.builtins.diagnostics.eslint_d,
+    nullls.builtins.diagnostics.phpstan.with({
+      command = "phpstan.phar",
+    }),
+    --[[ nullls.builtins.diagnostics.psalm.with({ ]]
+    --[[   command = "psalm.phar", ]]
+    --[[ }), ]]
     nullls.builtins.diagnostics.phpcs.with({
       command = "phpcs.phar",
-      extra_args = { "--standard=PSR12" },
     }),
     nullls.builtins.formatting.phpcbf.with({
       command = "phpcbf.phar",
-      extra_args = { "--standard=PSR12" },
     }),
   }
 }

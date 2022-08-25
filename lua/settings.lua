@@ -24,3 +24,4 @@ opt.numberwidth = 4
 opt.hlsearch = true
 opt.fileencoding = "utf-8"
 opt.termguicolors = true
+opt.cursorline = true

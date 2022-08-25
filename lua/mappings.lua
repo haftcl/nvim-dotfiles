@@ -40,10 +40,21 @@ map('n', '<leader>gb', '<cmd>lua require(\'telescope.builtin\').git_branch()<cr>
 map('n', '<C-n>', '<cmd> NvimTreeToggle <cr>', opts)
 map('n', '<leader>e', '<cmd> NvimTreeFocus <cr>', opts)
 
+-- Barbar
+map('n', '<leader>ba', '<cmd>BufferCloseAllButCurrent<cr>', opts)
+map('n', '<leader>bc', '<cmd>BufferClose<cr>', opts)
+
 -- Visual --
 -- Stay in indent mode
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
+
+-- QqWw as the same
+vim.api.nvim_create_user_command('WQ', 'wq', {})
+vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('W', 'w', {})
+vim.api.nvim_create_user_command('Qa', 'qa', {})
+vim.api.nvim_create_user_command('Q', 'q', {})
 
 -- Toggleterm
 function _G.set_terminal_keymaps()
