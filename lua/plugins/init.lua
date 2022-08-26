@@ -1,6 +1,7 @@
 -- Inicializamos packer
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local packer_bootstrap = false
 
 if fn.empty(fn.glob(install_path)) > 0 then
   print 'Cloning packer ...'
@@ -26,10 +27,10 @@ packer.init({
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.api.nvim_create_autocmd("BufWritePost", {
   group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
-  pattern = "*/plugins/init.lua",
-  callback = function ()
-    require('plugins')
-    require('packer').sync()
+  pattern = "*/nvim/lua/plugins/init.lua",
+  callback = function()
+    vim.api.nvim_command('source <afile>');
+    require('packer').compile()
   end
 })
 
@@ -49,10 +50,14 @@ return packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' }
   }
   use { 'goolord/alpha-nvim' }
-  use { 'numToStr/Comment.nvim' } use { 'JoosepAlviste/nvim-ts-context-commentstring' }
+  use { 'numToStr/Comment.nvim' }
+  use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
+  use { 'NvChad/nvim-colorizer.lua' } -- Colorizer buffer based
+  use { 'mrshmllow/document-color.nvim' } -- Colorizer lsp based
+  use { 'lukas-reineke/indent-blankline.nvim' }
 
   -- Colorschemes
   use { 'olimorris/onedarkpro.nvim' }
@@ -110,5 +115,7 @@ return packer.startup(function(use)
   require 'plugins.configs.comment'
   require 'plugins.configs.neogit'
   require 'plugins.configs.diffview'
+  require 'plugins.configs.colorizers'
+  require 'plugins.configs.indent'
   require 'plugins.lsp'
 end)

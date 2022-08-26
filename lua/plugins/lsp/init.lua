@@ -1,6 +1,6 @@
 local status_ok, lsp = pcall(require, "lspconfig")
 if not status_ok then
-	return
+  return
 end
 
 local lsp_flags = {
@@ -31,6 +31,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
   vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
   vim.keymap.set('v', '<leader>ls', '<Esc><cmd>lua vim.lsp.buf.range_formatting()<CR>', bufopts)
+
+  local colorizer_ok, dc = pcall(require, 'document-color')
+
+  if colorizer_ok then
+    if client.server_capabilities.colorProvider then
+      -- Attach document colour support
+      dc.buf_attach(bufnr)
+    end
+  end
 end
 
 -- configuraciones
@@ -107,25 +116,25 @@ lsp.yamlls.setup {
 }
 
 -- go
-lsp.gopls.setup{
+lsp.gopls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
 
 -- Python
-lsp.pyright.setup{
+lsp.pyright.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
 
 -- docker
-lsp.dockerls.setup{
+lsp.dockerls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
 
 -- sqls
-lsp.sqls.setup{
+lsp.sqls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
