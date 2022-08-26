@@ -23,6 +23,16 @@ packer.init({
   },
 })
 
+-- Autocommand that reloads neovim whenever you save the plugins.lua file
+vim.api.nvim_create_autocmd("BufWritePost", {
+  group = vim.api.nvim_create_augroup("packer_user_config", { clear = true }),
+  pattern = "*/plugins/init.lua",
+  callback = function ()
+    require('plugins')
+    require('packer').sync()
+  end
+})
+
 return packer.startup(function(use)
   -- Mis plugins
   -- General
@@ -31,8 +41,8 @@ return packer.startup(function(use)
   use { 'lewis6991/impatient.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope.nvim' }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   use { 'nvim-lualine/lualine.nvim' }
-  use { 'kyazdani42/nvim-tree.lua' }
   use { 'lewis6991/gitsigns.nvim' }
   use {
     'romgrk/barbar.nvim',
@@ -89,8 +99,8 @@ return packer.startup(function(use)
   require 'plugins.configs.impatient'
   require 'plugins.configs.lualine'
   require 'plugins.configs.mason'
-  require 'plugins.configs.nvimtree'
   require 'plugins.configs.treesitter'
+  require 'plugins.configs.telescope'
   require 'plugins.configs.toggleterm'
   require 'plugins.configs.gitsigns'
   require 'plugins.configs.cmp'
