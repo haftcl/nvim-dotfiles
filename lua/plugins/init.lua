@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use { 'lewis6991/impatient.nvim' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope.nvim' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
@@ -78,7 +79,7 @@ return packer.startup(function(use)
   -- Lsp
   use { 'williamboman/mason.nvim' } -- Installation of lsp, dap, linter and formatter
   use { 'williamboman/mason-lspconfig.nvim' } -- Integration of mason with lspconfig
-  use { 'neovim/nvim-lspconfig' } -- Lsp server integration
+  use { 'neovim/nvim-lspconfig', tag = '*' } -- Lsp server integration
   use { 'jose-elias-alvarez/null-ls.nvim' } -- For linting and formatting
 
   -- Treesitter

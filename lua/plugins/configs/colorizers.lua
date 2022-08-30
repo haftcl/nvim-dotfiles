@@ -28,5 +28,5 @@ if not status_dc_ok then
 end
 
 document_color.setup {
-  mode = 'single'
+  mode = 'background'
 }

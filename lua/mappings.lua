@@ -17,8 +17,8 @@ noremap YY "+y<CR>
 noremap XX "+x<CR>
 ]])
 
--- Clear matches with Ctrl+l
-map('n', '<C-l>', ':noh<Cr>', opts)
+-- Clear matches with Ctrl+h
+map('n', '<C-h>', ':noh<Cr>', opts)
 
 -- Telescope mappings
 map('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>', opts)
@@ -54,10 +54,6 @@ function _G.set_terminal_keymaps()
   local lopts = { noremap = true }
   vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], lopts)
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], lopts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], lopts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], lopts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], lopts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], lopts)
 end
 
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

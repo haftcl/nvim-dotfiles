@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, bufopts)
-  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, bufopts)
+  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, bufopts)
   vim.keymap.set('v', '<leader>ls', '<Esc><cmd>lua vim.lsp.buf.range_formatting()<CR>', bufopts)
 
   local colorizer_ok, dc = pcall(require, 'document-color')
@@ -55,7 +55,11 @@ lsp.rust_analyzer.setup {
 
 -- Typescript
 lsp.tsserver.setup {
-  on_attach = on_attach,
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    client.server_capabilities.documentFormattingProvider = false
+    client.server_capabilities.documentRangeFormattingProvider = false
+  end,
   flags = lsp_flags,
 }
 
