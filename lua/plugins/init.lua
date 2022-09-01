@@ -43,25 +43,23 @@ return packer.startup(function(use)
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-telescope/telescope.nvim' }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { "nvim-telescope/telescope-file-browser.nvim" }
+  use { 'nvim-telescope/telescope-file-browser.nvim' }
+  use { 'nvim-telescope/telescope-project.nvim' }
+  use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
   use { 'lewis6991/gitsigns.nvim' }
-  use {
-    'romgrk/barbar.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' }
-  }
+  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'goolord/alpha-nvim' }
   use { 'numToStr/Comment.nvim' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'NvChad/nvim-colorizer.lua' } -- Colorizer buffer based
   use { 'mrshmllow/document-color.nvim' } -- Colorizer lsp based
   use { 'lukas-reineke/indent-blankline.nvim' }
 
   -- Colorschemes
-  use { 'olimorris/onedarkpro.nvim' }
   use { 'folke/tokyonight.nvim' }
 
   -- cmp plugins
@@ -99,7 +97,7 @@ return packer.startup(function(use)
   use { 'ggandor/lightspeed.nvim' }
 
   if packer_bootstrap then
-    require('packer').sync()
+    packer.sync()
   end
 
   require 'plugins.configs.impatient'

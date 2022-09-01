@@ -4,4 +4,8 @@ if not status_ok then
   return
 end
 
-neogit.setup()
+neogit.setup {
+  integrations = {
+    diffview = true,
+  },
+}
