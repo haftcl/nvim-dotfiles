@@ -47,20 +47,22 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope-project.nvim' }
   use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
-  use { 'lewis6991/gitsigns.nvim' }
   use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
-  use { 'goolord/alpha-nvim' }
   use { 'numToStr/Comment.nvim' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'NvChad/nvim-colorizer.lua' } -- Colorizer buffer based
-  use { 'mrshmllow/document-color.nvim' } -- Colorizer lsp based
   use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'glepnir/dashboard-nvim' }
+
+  -- Git
+  use { 'lewis6991/gitsigns.nvim' }
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Colorschemes
   use { 'folke/tokyonight.nvim' }
+  use { "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" }
 
   -- cmp plugins
   use { 'hrsh7th/nvim-cmp' } -- The completion plugin
@@ -80,8 +82,13 @@ return packer.startup(function(use)
   use { 'neovim/nvim-lspconfig', tag = '*' } -- Lsp server integration
   use { 'jose-elias-alvarez/null-ls.nvim' } -- For linting and formatting
 
+  -- Golang
+  use { 'ray-x/go.nvim', requires = 'ray-x/guihua.lua', config = function() require 'go'.setup() end }
+
   -- Treesitter
   use { 'nvim-treesitter/nvim-treesitter' }
+  use { 'nvim-treesitter/nvim-treesitter-textobjects' }
+  use { 'nvim-treesitter/nvim-treesitter-context' }
 
   -- Movement and Actions
   use {
@@ -110,7 +117,7 @@ return packer.startup(function(use)
   require 'plugins.configs.cmp'
   require 'plugins.configs.null-ls'
   require 'plugins.configs.barbar'
-  require 'plugins.configs.alpha'
+  require 'plugins.configs.dashboard'
   require 'plugins.configs.comment'
   require 'plugins.configs.neogit'
   require 'plugins.configs.diffview'
