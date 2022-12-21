@@ -101,7 +101,6 @@ return packer.startup(function(use)
     end
   }
   use { 'tpope/vim-repeat' }
-  use { 'ggandor/lightspeed.nvim' }
 
   if packer_bootstrap then
     packer.sync()
@@ -116,7 +115,6 @@ return packer.startup(function(use)
   require 'plugins.configs.gitsigns'
   require 'plugins.configs.cmp'
   require 'plugins.configs.null-ls'
-  require 'plugins.configs.barbar'
   require 'plugins.configs.dashboard'
   require 'plugins.configs.comment'
   require 'plugins.configs.neogit'
