@@ -143,6 +143,12 @@ lsp.sqls.setup {
   flags = lsp_flags,
 }
 
+-- svelte
+lsp.svelte.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
 -- php
 lsp.phpactor.setup {
   on_attach = on_attach,

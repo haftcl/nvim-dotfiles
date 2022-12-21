@@ -47,7 +47,6 @@ return packer.startup(function(use)
   use { 'nvim-telescope/telescope-project.nvim' }
   use { 'nvim-telescope/telescope-ui-select.nvim' }
   use { 'nvim-lualine/lualine.nvim' }
-  use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }
   use { 'numToStr/Comment.nvim' }
   use { 'JoosepAlviste/nvim-ts-context-commentstring' }
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
@@ -63,6 +62,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use { 'folke/tokyonight.nvim' }
   use { "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" }
+  use { "EdenEast/nightfox.nvim" }
 
   -- cmp plugins
   use { 'hrsh7th/nvim-cmp' } -- The completion plugin

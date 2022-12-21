@@ -21,7 +21,7 @@ noremap XX "+x<CR>
 map('n', '<C-h>', ':noh<Cr>', opts)
 
 -- Telescope mappings
-map('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files()<cr>', opts)
+map('n', '<leader>ff', '<cmd>lua require(\'telescope.builtin\').find_files({hidden = true})<cr>', opts)
 map('n', '<leader>fg', '<cmd>lua require(\'telescope.builtin\').git_files()<cr>', opts)
 map('n', '<leader>fs', '<cmd>lua require(\'telescope.builtin\').lsp_document_symbols()<cr>', opts)
 map('n', '<leader>fw', '<cmd>lua require(\'telescope.builtin\').live_grep()<cr>', opts)
@@ -29,7 +29,7 @@ map('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').buffers()<cr>', 
 map('n', '<leader>fh', '<cmd>lua require(\'telescope.builtin\').help_tags()<cr>', opts)
 map('n', '<leader>fc', '<cmd>lua require(\'telescope.builtin\').git_commits()<cr>', opts)
 map('n', '<leader>ft', '<cmd>lua require(\'telescope.builtin\').git_status()<cr>', opts)
-map('n', '<leader>fb', '<cmd>lua require(\'telescope.builtin\').git_branch()<cr>', opts)
+map('n', '<leader>fr', '<cmd>lua require(\'telescope.builtin\').git_branch()<cr>', opts)
 map('n', '<leader>fo', ':Telescope file_browser<cr>', opts)
 map('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", opts)
 
