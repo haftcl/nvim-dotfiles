@@ -52,7 +52,11 @@ return packer.startup(function(use)
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'NvChad/nvim-colorizer.lua' } -- Colorizer buffer based
   use { 'lukas-reineke/indent-blankline.nvim' }
-  use { 'glepnir/dashboard-nvim' }
+  use {
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    requires = {'nvim-tree/nvim-web-devicons'}
+  }
 
   -- Git
   use { 'lewis6991/gitsigns.nvim' }
@@ -101,6 +105,15 @@ return packer.startup(function(use)
     end
   }
   use { 'tpope/vim-repeat' }
+
+  -- Others
+  use {
+    'tamton-aquib/duck.nvim',
+    config = function ()
+      vim.keymap.set('n', '<leader>dh', function () require("duck").hatch() end, {})
+      vim.keymap.set('n', '<leader>dk', function () require("duck").cook() end, {})
+    end
+  }
 
   if packer_bootstrap then
     packer.sync()
