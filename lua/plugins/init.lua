@@ -52,16 +52,12 @@ return packer.startup(function(use)
   use { 'akinsho/toggleterm.nvim', tag = 'v2.*' }
   use { 'NvChad/nvim-colorizer.lua' } -- Colorizer buffer based
   use { 'lukas-reineke/indent-blankline.nvim' }
-  use {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    requires = {'nvim-tree/nvim-web-devicons'}
-  }
+  use { 'ThePrimeagen/harpoon' }
 
   -- Git
   use { 'lewis6991/gitsigns.nvim' }
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'NeogitOrg/neogit', requires = 'nvim-lua/plenary.nvim' }
 
   -- Colorschemes
   use { 'folke/tokyonight.nvim' }
@@ -69,22 +65,22 @@ return packer.startup(function(use)
   use { "EdenEast/nightfox.nvim" }
 
   -- cmp plugins
-  use { 'hrsh7th/nvim-cmp' } -- The completion plugin
-  use { 'hrsh7th/cmp-buffer' } -- buffer completions
-  use { 'hrsh7th/cmp-path' } -- path completions
+  use { 'hrsh7th/nvim-cmp' }         -- The completion plugin
+  use { 'hrsh7th/cmp-buffer' }       -- buffer completions
+  use { 'hrsh7th/cmp-path' }         -- path completions
   use { 'saadparwaiz1/cmp_luasnip' } -- snippet completions
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lua' }
 
   -- snippets
-  use { 'L3MON4D3/LuaSnip' } --snippet engine
+  use { 'L3MON4D3/LuaSnip' }             --snippet engine
   use { 'rafamadriz/friendly-snippets' } -- a bunch of snippets to use
 
   -- Lsp
-  use { 'williamboman/mason.nvim' } -- Installation of lsp, dap, linter and formatter
+  use { 'williamboman/mason.nvim' }           -- Installation of lsp, dap, linter and formatter
   use { 'williamboman/mason-lspconfig.nvim' } -- Integration of mason with lspconfig
-  use { 'neovim/nvim-lspconfig', tag = '*' } -- Lsp server integration
-  use { 'jose-elias-alvarez/null-ls.nvim' } -- For linting and formatting
+  use { 'neovim/nvim-lspconfig', tag = '*' }  -- Lsp server integration
+  use { 'jose-elias-alvarez/null-ls.nvim' }   -- For linting and formatting
 
   -- Golang
   use { 'ray-x/go.nvim', requires = 'ray-x/guihua.lua', config = function() require 'go'.setup() end }
@@ -99,9 +95,7 @@ return packer.startup(function(use)
     'kylechui/nvim-surround',
     tag = '*', -- Use for stability; omit to use `main` branch for the latest features
     config = function()
-      require('nvim-surround').setup({
-        -- Configuration here, or leave empty to use defaults
-      })
+      require('nvim-surround').setup()
     end
   }
   use { 'tpope/vim-repeat' }
@@ -109,11 +103,13 @@ return packer.startup(function(use)
   -- Others
   use {
     'tamton-aquib/duck.nvim',
-    config = function ()
-      vim.keymap.set('n', '<leader>dh', function () require("duck").hatch() end, {})
-      vim.keymap.set('n', '<leader>dk', function () require("duck").cook() end, {})
+    config = function()
+      vim.keymap.set('n', '<leader>dh', function() require("duck").hatch() end, {})
+      vim.keymap.set('n', '<leader>dk', function() require("duck").cook() end, {})
     end
   }
+
+  use { 'github/copilot.vim' }
 
   if packer_bootstrap then
     packer.sync()
@@ -128,7 +124,6 @@ return packer.startup(function(use)
   require 'plugins.configs.gitsigns'
   require 'plugins.configs.cmp'
   require 'plugins.configs.null-ls'
-  require 'plugins.configs.dashboard'
   require 'plugins.configs.comment'
   require 'plugins.configs.neogit'
   require 'plugins.configs.diffview'

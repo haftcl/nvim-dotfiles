@@ -61,4 +61,17 @@ function _G.set_terminal_keymaps()
   vim.api.nvim_buf_set_keymap(0, 't', 'jk', [[<C-\><C-n>]], lopts)
 end
 
+-- Copilot
+map('i', '<C-g>', "copilot#Accept(\"\")", { noremap = true, silent = true, expr = true, script = true })
+vim.g.copilot_no_tab_map = 1
+
+-- Harpoon
+map('n', '<leader>hh', ':lua require(\'harpoon.ui\').toggle_quick_menu()<cr>', opts)
+map('n', '<leader>h1', ':lua require(\'harpoon.ui\').nav_file(1)<cr>', opts)
+map('n', '<leader>h2', ':lua require(\'harpoon.ui\').nav_file(2)<cr>', opts)
+map('n', '<leader>h3', ':lua require(\'harpoon.ui\').nav_file(3)<cr>', opts)
+map('n', '<leader>h4', ':lua require(\'harpoon.ui\').nav_file(4)<cr>', opts)
+map('n', '<leader>h5', ':lua require(\'harpoon.ui\').nav_file(5)<cr>', opts)
+map('n', '<leader>hm', ':lua require(\'harpoon.mark\').add_file()<cr>', opts)
+
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

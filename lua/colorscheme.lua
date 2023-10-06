@@ -12,12 +12,10 @@ require("catppuccin").setup({
   },
   integrations = {
     neogit = true,
-    barbar = true,
     indent_blankline = {
 			enabled = true,
 			colored_indent_levels = false,
 		},
-    lightspeed = true,
   }
 })
 
