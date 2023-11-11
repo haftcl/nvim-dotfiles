@@ -24,6 +24,7 @@ lazy.setup({
   'nvim-lua/plenary.nvim',
   'lewis6991/impatient.nvim',
   'kyazdani42/nvim-web-devicons',
+  'rcarriga/nvim-notify',
   { 'github/copilot.vim' },
   -- Telescope
   'nvim-telescope/telescope.nvim',
