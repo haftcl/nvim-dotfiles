@@ -113,12 +113,6 @@ lsp.yamlls.setup {
   flags = lsp_flags,
 }
 
--- yaml
-lsp.yamlls.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
 -- go
 lsp.gopls.setup {
   on_attach = on_attach,
@@ -133,6 +127,12 @@ lsp.pyright.setup {
 
 -- docker
 lsp.dockerls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+}
+
+-- docker-compose
+lsp.docker_compose_language_service.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
