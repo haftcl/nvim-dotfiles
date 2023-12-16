@@ -33,11 +33,8 @@ map('n', '<leader>fr', '<cmd>lua require(\'telescope.builtin\').git_branch()<cr>
 map('n', '<leader>fo', ':Telescope file_browser<cr>', opts)
 map('n', '<leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", opts)
 
--- Barbar -- Buffers
-map('n', '<leader>ba', '<cmd>BufferCloseAllButCurrent<cr>', opts)
-map('n', '<leader>bc', '<cmd>BufferClose<cr>', opts)
-map('n', '<S-h>', '<cmd>BufferPrevious<CR>', opts)
-map('n', '<S-l>', '<cmd>BufferNext<CR>', opts)
+-- Trouble
+map('n', '<leader>fe', "<cmd>TroubleToggle<cr>", opts)
 
 -- Neogit
 map('n', '<leader>ng', "<cmd>Neogit<cr>", opts)

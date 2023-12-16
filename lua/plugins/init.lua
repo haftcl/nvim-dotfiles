@@ -22,7 +22,6 @@ lazy.setup({
   -- General
   'wbthomason/packer.nvim',
   'nvim-lua/plenary.nvim',
-  'lewis6991/impatient.nvim',
   'kyazdani42/nvim-web-devicons',
   'rcarriga/nvim-notify',
   { 'github/copilot.vim' },
@@ -46,6 +45,7 @@ lazy.setup({
   'NvChad/nvim-colorizer.lua',
   'lukas-reineke/indent-blankline.nvim',
   'ThePrimeagen/harpoon',
+  'folke/trouble.nvim',
   -- Git
   'lewis6991/gitsigns.nvim',
   {
