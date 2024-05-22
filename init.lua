@@ -1,5 +1,1 @@
-require 'settings'
-require 'autocmd'
-require 'plugins'
-require 'colorscheme'
-require 'mappings'
+require("haftcl")
