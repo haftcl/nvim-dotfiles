@@ -21,13 +21,12 @@ return {
                 }
             })
 
-            vim.keymap.set('n', '<leader>ff', function () builtin.find_files({ hidden = true }) end, {})
-            vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-            vim.keymap.set('n', '<leader>fs', builtin.lsp_document_symbols, {})
-            vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>fc', builtin.git_commits, {})
+            vim.keymap.set('n', '<leader>ff', function () builtin.find_files({ hidden = true }) end)
+            vim.keymap.set('n', '<leader>fg', builtin.git_files)
+            vim.keymap.set('n', '<leader>fw', builtin.live_grep)
+            vim.keymap.set('n', '<leader>fb', builtin.buffers)
+            vim.keymap.set('n', '<leader>fh', builtin.help_tags)
+            vim.keymap.set('n', '<leader>fc', builtin.git_commits)
         end
     },
     {
@@ -36,7 +35,7 @@ return {
         config = function()
             local telescope = require("telescope")
             telescope.load_extension "file_browser"
-            vim.keymap.set('n', '<leader>fo', function () telescope.extensions.file_browser.file_browser() end, {})
+            vim.keymap.set('n', '<leader>fo', function () telescope.extensions.file_browser.file_browser() end)
         end
     },
     {
@@ -45,7 +44,7 @@ return {
         config = function ()
             local telescope = require("telescope")
             telescope.load_extension "project"
-            vim.keymap.set('n', '<leader>fp', function () telescope.extensions.project.project({}) end, {})
+            vim.keymap.set('n', '<leader>fp', function () telescope.extensions.project.project({}) end)
         end
     },
 }
