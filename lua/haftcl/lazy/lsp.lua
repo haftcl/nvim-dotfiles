@@ -54,41 +54,12 @@ return {
                         }
                     end,
 
-                    ["gopls"] = function()
-                        lspconfig.gopls.setup {
+                    ["tailwindcss"] = function()
+                        lspconfig.tailwindcss.setup {
                             capabilities = capabilities,
+                            autostart = false,
                         }
-                    end,
-
-                    ["phpactor"] = function()
-                        lspconfig.phpactor.setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-
-                    ["dockerls"] = function()
-                        lspconfig.dockerls.setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-
-                    ["docker_compose_language_service"] = function()
-                        lspconfig.docker_compose_language_service.setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-
-                    ["bashls"] = function()
-                        lspconfig.bashls.setup {
-                            capabilities = capabilities,
-                        }
-                    end,
-
-                    ["jsonls"] = function()
-                        lspconfig.jsonls.setup {
-                            capabilities = capabilities,
-                        }
-                    end,
+                    end
                 }
             })
 
